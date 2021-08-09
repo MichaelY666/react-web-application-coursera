@@ -74,7 +74,7 @@ class DishDetail extends Component {
 						{this.renderDish(this.props.selectedDish)}
 					</div>
 					<div className="col-12 col-md-5 m-1">
-						{this.renderComments(this.props.selectedDish.comments)}
+						{this.renderComments(this.props.comments)}
 					</div>
 				</div>
 			</div>
