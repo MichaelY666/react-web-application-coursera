@@ -18,13 +18,15 @@ function About(props) {
             return (
                 
                     <Media className="row">
-                        <Media className="col-md-3 mt-1">
+                        <Media left className="col-md-3">
                             <Media object src={leader.image} alt={leader.designation}/>
                         </Media>
-                        <Media className="col-md-9 mt-1">
+                        <Media right body className="col-9">
                             <Media heading>{leader.name}</Media>
-                            <Media>{leader.designation}</Media>
-                            <Media>{leader.description}</Media>
+                            <Media body>
+                                <Media>{leader.designation}</Media>
+                                <Media>{leader.description}</Media>
+                            </Media>
                         </Media>
                     </Media>
             
