@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Breadcrumb, BreadcrumbItem, Button, Label, Col, Row } from 'reactstrap'; 
 import { Link } from 'react-router-dom';
-import { Control, Form, Errors, actions } from 'react-redux-form'
+import { Control, Form, Errors } from 'react-redux-form'
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len)
@@ -18,8 +18,8 @@ class Contact extends Component{
     }
 
     handleSubmit(values) {
-        console.log("Current State is: " + JSON.stringify(values))
-        alert("Current State is: " + JSON.stringify(values))
+        console.log("Submitting feedback: " + JSON.stringify(values))        
+        this.props.postFeedback(values);
         this.props.resetFeedbackForm();
     }
 
@@ -94,7 +94,7 @@ class Contact extends Component{
                             <Row className="form-group">
                                 <Label htmlFor="lastname" md={2}>Last Name</Label>
                                 <Col md={10}>
-                                <Control.text model="lastname" id="lastname" name="lastname"
+                                <Control.text model=".lastname" id="lastname" name="lastname"
                                     placeholder="Last Name"
                                     className="form-control"
                                     validators={{
@@ -169,7 +169,7 @@ class Contact extends Component{
                                     </div>
                                 </Col>
                                 <Col md={{size:3, offset: 1}}>
-                                    <Control.select model=".contacttype" name="contactType"
+                                    <Control.select model=".contactType" name="contactType"
                                         className="form-control">
                                         <option>Tel.</option>    
                                         <option>Email</option>    
